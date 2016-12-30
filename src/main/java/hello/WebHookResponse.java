@@ -12,11 +12,31 @@ public class WebHookResponse {
 	private String	speech		= "Speech1";
 	private String	displayText	= "displayText1";
 	private String	source		= "source";
+	private String	data;
+	private String	contextOut;
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getContextOut() {
+		return contextOut;
+	}
+
+	public void setContextOut(String contextOut) {
+		this.contextOut = contextOut;
+	}
+
 	public WebHookResponse(String speech, String displayText, String source) {
 		this.setDisplayText(displayText);
 		this.setSource(source);
 		this.setSpeech(speech);
 	}
+
 	public String getSpeech() {
 		return speech;
 	}
