@@ -2,6 +2,7 @@ package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,14 @@ public class GreetingController {
 
 	@RequestMapping("/webhook")
 	public WebHookResponse webHook(@RequestParam(value = "name", defaultValue = "World") String name) {
+
 		return new WebHookResponse(String.valueOf(counter.incrementAndGet()), name, name);
 	}
+
+	@RequestMapping("/webhookJson")
+	public WebHookResponse webHookJson(@RequestBody String json) {
+		System.out.println(json);
+		return new WebHookResponse(String.valueOf(counter.incrementAndGet()), "a", "b");
+	}
+
 }
